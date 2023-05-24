@@ -8,6 +8,8 @@ gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
 
 gem 'bunny'
 
+gem 'hotwire-rails'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
@@ -100,3 +102,5 @@ end
 gem "sidekiq", "~> 7.1"
 
 gem "sidekiq-cron", "~> 1.10"
+
+gem "kaminari", "~> 1.2"
