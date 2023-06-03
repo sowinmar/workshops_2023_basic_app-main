@@ -5,7 +5,7 @@ class BookLoansController < ApplicationController
   def create
     respond_to do |format|
       if @book_loan.save
-        LoanCreatedJob.perform_async(@book_loan.id)
+        publish_log(@book_loan)
         format.html { redirect_to book_url(book), notice: flash_notice }
         format.json { render :show, status: :created, location: @book_loan }
       else
@@ -38,5 +38,9 @@ class BookLoansController < ApplicationController
 
   def book_loan_params
     params.require(:book_id)
+  end
+
+  def publish_log(book_loan)
+    Publishers::LoanBookPublisher.new(book_loan.attributes).publish
   end
 end
