@@ -1,21 +1,17 @@
 module Publishers
   class LoanBookPublisher
-    def initialize (message:)
-      @message = message
+    def initialize(data)
+      @data = data
     end
 
     def publish
       ::Publishers::Application.new(
         routing_key: 'basic_app.book_loans',
         exchange_name: 'basic_app',
-        message: message
-      ).publish
+        message: data
+      ).perform
     end
 
-  private
-
-  attr_reader :message
-
+    attr_reader :data
   end
-
 end
