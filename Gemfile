@@ -10,6 +10,10 @@ gem 'bunny'
 
 gem 'hotwire-rails'
 
+gem 'omniauth-google-oauth2'
+
+gem 'omniauth-rails_csrf_protection'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
